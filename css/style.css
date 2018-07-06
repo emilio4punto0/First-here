@@ -22,6 +22,10 @@ body{
     height: 80px;
 
 }
+#saludo{
+    text-align: right;
+    color: black;
+}
 
 #menu{
     font-family: helvetica, arial;

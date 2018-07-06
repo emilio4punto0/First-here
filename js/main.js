@@ -52,11 +52,36 @@ posts.forEach((item, index)=> {
 ///SCROLL
 
 var scroll= $("#scroll");
-$(scroll).click(function(){
-$("html, body").animate({
-    scrollTop: 0
-}, 800);
+    $(scroll).click(function(e){
+        e.preventDefault();
+    $("html, body").animate({
+        scrollTop: 0
+    }, 800);
+    return false;
 });
+
+///LOGIN FALSO
+
+$('#login').submit(function(){
+    var form_name = $('#form_name').val();
+    localStorage.setItem('form_name', form_name);
+});
+
+var form_name = localStorage.getItem('form_name');
+
+if(form_name != null && form_name != undefined){
+    $('#saludo').html('Hola '+ form_name + ' Bienvenida campeona');
+    $('#saludo').append('<a href="#" id="logout"> Cerrar sesión </a>');
+    
+    $('#logout').click(function(){
+        localStorage.clear();
+        location.reload();
+    });
+};
+//else(alert("introduce los datos correctamente"))
+
+
+
 
 
 
